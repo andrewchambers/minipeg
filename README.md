@@ -1,4 +1,4 @@
-# minipeg
+# Minipeg
 
 `minipeg` is a tool for generating recursive-descent parsers: programs that perform pattern matching on
 text. 
@@ -6,6 +6,15 @@ text.
 Unlike `lex` and `yacc`, `minipeg` supports unlimited backtracking, provide ordered choice as a means for disambiguation, and can combine scanning (lexical analysis) and parsing (syntactic analysis) into a single activity.
 
 `minipeg` is also easy to embed in your C project by copying the amalgamated release (which has the permissive license MIT license).
+
+## Examples
+
+See some examples:
+
+- [word count](./examples/wc.peg)
+- [calculator](./examples/calc.peg)
+- [basic interpeter](./examples/basic.peg)
+- [x86_64 assembler](https://github.com/andrewchambers/minias/blob/cd21b90feaa9b66296b8614023349fae7d314b4b/asm.peg)
 
 ## History
 
