@@ -1,18 +1,20 @@
+DESTDIR	=
+PREFIX	= /usr/local
+BINDIR	= $(DESTDIR)$(PREFIX)/bin
+MANDIR	= $(DESTDIR)$(PREFIX)/man/man1
 CFLAGS = -g -Wall $(OFLAGS) $(XFLAGS) -Isrc
 OFLAGS = -O3 -DNDEBUG
 
-OBJS = tree.o compile.o
+OBJ = leg.o tree.o compile.o
+NEWOBJ = leg-new.o tree.o compile.o
 
 all : leg
 
-leg : leg.o $(OBJS)
-	$(CC) $(CFLAGS) -o $@-new leg.o $(OBJS)
-	mv $@-new $@
+leg : $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $(OBJ)
 
-ROOT	=
-PREFIX	= /usr/local
-BINDIR	= $(ROOT)$(PREFIX)/bin
-MANDIR	= $(ROOT)$(PREFIX)/man/man1
+leg-new : $(NEWOBJ)
+	$(CC) $(CFLAGS) -o $@ $(NEWOBJ)
 
 install : $(BINDIR) $(BINDIR)/leg $(MANDIR) $(MANDIR)/peg.1
 
@@ -33,24 +35,11 @@ uninstall : .FORCE
 	rm -f $(BINDIR)/leg
 	rm -f $(MANDIR)/peg.1
 
-%.o : src/%.c
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-leg.o : src/leg.c
-
-check : check-leg
-
 check-leg : leg.c .FORCE
-	diff src/leg.c leg.c
+	diff leg-new.c leg.c
 
-leg.c : src/leg.leg leg
+leg-new.c :leg.leg leg
 	./leg -o $@ $<
-
-new : newleg
-
-newleg : leg.c
-	mv src/leg.c src/leg.c-
-	mv leg.c src/.
 
 test examples : leg .FORCE
 	$(SHELL) -ec '(cd examples;  $(MAKE))'
