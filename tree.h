@@ -1,21 +1,3 @@
-/* Copyright (c) 2007 by Ian Piumarta
- * All rights reserved.
- * 
- * Permission is hereby granted, free of charge, to any person obtaining a
- * copy of this software and associated documentation files (the 'Software'),
- * to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, provided that the above copyright notice(s) and this
- * permission notice appear in all copies of the Software.  Acknowledgement
- * of the use of this Software in supporting documentation would be
- * appreciated but is not required.
- * 
- * THE SOFTWARE IS PROVIDED 'AS IS'.  USE ENTIRELY AT YOUR OWN RISK.
- * 
- * Last edited: 2016-07-22 09:42:48 by piumarta on zora.local
- */
-
 #include <stdio.h>
 
 enum { Unknown= 0, Rule, Variable, Name, Dot, Character, String, Class, Action, Inline, Predicate, Error, Alternate, Sequence, PeekFor, PeekNot, Query, Star, Plus };
