@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #define YYRULECOUNT 39
-#line 20 "peg.peg"
+#line 1 "peg.peg"
 
 #include "tree.h"
 #include "version.h"
@@ -367,7 +367,7 @@ YY_ACTION(void) yy_1_end_of_line(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_end_of_line\n"));
   {
-#line 160
+#line 141
    ++lineNumber ;
   }
 #undef yythunkpos
@@ -381,7 +381,7 @@ YY_ACTION(void) yy_1_action(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_action\n"));
   {
-#line 133
+#line 114
    actionLine= lineNumber ;
   }
 #undef yythunkpos
@@ -395,7 +395,7 @@ YY_ACTION(void) yy_9_primary(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_9_primary\n"));
   {
-#line 113
+#line 94
    push(makePredicate("YY_END")); ;
   }
 #undef yythunkpos
@@ -409,7 +409,7 @@ YY_ACTION(void) yy_8_primary(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_8_primary\n"));
   {
-#line 112
+#line 93
    push(makePredicate("YY_BEGIN")); ;
   }
 #undef yythunkpos
@@ -423,7 +423,7 @@ YY_ACTION(void) yy_7_primary(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_7_primary\n"));
   {
-#line 111
+#line 92
    push(makeAction(actionLine, yytext)); ;
   }
 #undef yythunkpos
@@ -437,7 +437,7 @@ YY_ACTION(void) yy_6_primary(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_6_primary\n"));
   {
-#line 110
+#line 91
    push(makeDot()); ;
   }
 #undef yythunkpos
@@ -451,7 +451,7 @@ YY_ACTION(void) yy_5_primary(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_5_primary\n"));
   {
-#line 109
+#line 90
    push(makeClass(yytext)); ;
   }
 #undef yythunkpos
@@ -465,7 +465,7 @@ YY_ACTION(void) yy_4_primary(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_4_primary\n"));
   {
-#line 108
+#line 89
    push(makeString(yytext)); ;
   }
 #undef yythunkpos
@@ -479,7 +479,7 @@ YY_ACTION(void) yy_3_primary(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_3_primary\n"));
   {
-#line 106
+#line 87
    push(makeName(findRule(yytext))); ;
   }
 #undef yythunkpos
@@ -493,7 +493,7 @@ YY_ACTION(void) yy_2_primary(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_primary\n"));
   {
-#line 105
+#line 86
    Node *name= makeName(findRule(yytext));  name->name.variable= pop();  push(name); ;
   }
 #undef yythunkpos
@@ -507,7 +507,7 @@ YY_ACTION(void) yy_1_primary(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_primary\n"));
   {
-#line 104
+#line 85
    push(makeVariable(yytext)); ;
   }
 #undef yythunkpos
@@ -521,7 +521,7 @@ YY_ACTION(void) yy_3_suffix(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_3_suffix\n"));
   {
-#line 101
+#line 82
    push(makePlus (pop())); ;
   }
 #undef yythunkpos
@@ -535,7 +535,7 @@ YY_ACTION(void) yy_2_suffix(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_suffix\n"));
   {
-#line 100
+#line 81
    push(makeStar (pop())); ;
   }
 #undef yythunkpos
@@ -549,7 +549,7 @@ YY_ACTION(void) yy_1_suffix(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_suffix\n"));
   {
-#line 99
+#line 80
    push(makeQuery(pop())); ;
   }
 #undef yythunkpos
@@ -563,7 +563,7 @@ YY_ACTION(void) yy_4_prefix(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_4_prefix\n"));
   {
-#line 96
+#line 77
    push(makePeekNot(pop())); ;
   }
 #undef yythunkpos
@@ -577,7 +577,7 @@ YY_ACTION(void) yy_3_prefix(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_3_prefix\n"));
   {
-#line 95
+#line 76
    push(makePeekFor(pop())); ;
   }
 #undef yythunkpos
@@ -591,7 +591,7 @@ YY_ACTION(void) yy_2_prefix(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_prefix\n"));
   {
-#line 94
+#line 75
    push(makePredicate(yytext)); ;
   }
 #undef yythunkpos
@@ -605,7 +605,7 @@ YY_ACTION(void) yy_1_prefix(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_prefix\n"));
   {
-#line 93
+#line 74
    push(makeInline(yytext)); ;
   }
 #undef yythunkpos
@@ -619,7 +619,7 @@ YY_ACTION(void) yy_1_error(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_error\n"));
   {
-#line 90
+#line 71
    push(makeError(pop(), yytext)); ;
   }
 #undef yythunkpos
@@ -633,7 +633,7 @@ YY_ACTION(void) yy_1_sequence(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_sequence\n"));
   {
-#line 87
+#line 68
    Node *f= pop();  push(Sequence_append(pop(), f)); ;
   }
 #undef yythunkpos
@@ -647,7 +647,7 @@ YY_ACTION(void) yy_1_expression(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_expression\n"));
   {
-#line 84
+#line 65
    Node *f= pop();  push(Alternate_append(pop(), f)); ;
   }
 #undef yythunkpos
@@ -661,7 +661,7 @@ YY_ACTION(void) yy_2_definition(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_definition\n"));
   {
-#line 81
+#line 62
    Node *e= pop();  Rule_setExpression(pop(), e); ;
   }
 #undef yythunkpos
@@ -675,7 +675,7 @@ YY_ACTION(void) yy_1_definition(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_definition\n"));
   {
-#line 79
+#line 60
    if (push(beginRule(findRule(yytext)))->rule.expression)
 							    fprintf(stderr, "rule '%s' redefined\n", yytext); ;
   }
@@ -690,7 +690,7 @@ YY_ACTION(void) yy_2_trailer(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_trailer\n"));
   {
-#line 77
+#line 58
    makeTrailer(headerLine, yytext); ;
   }
 #undef yythunkpos
@@ -704,7 +704,7 @@ YY_ACTION(void) yy_1_trailer(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_trailer\n"));
   {
-#line 76
+#line 57
    headerLine= lineNumber ;
   }
 #undef yythunkpos
@@ -718,7 +718,7 @@ YY_ACTION(void) yy_2_declaration(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_2_declaration\n"));
   {
-#line 74
+#line 55
    makeHeader(headerLine, yytext); ;
   }
 #undef yythunkpos
@@ -732,7 +732,7 @@ YY_ACTION(void) yy_1_declaration(yycontext *yy, char *yytext, int yyleng)
 #define yythunkpos yy->__thunkpos
   yyprintf((stderr, "do yy_1_declaration\n"));
   {
-#line 72
+#line 53
    headerLine= lineNumber; ;
   }
 #undef yythunkpos
@@ -1395,7 +1395,7 @@ YY_PARSE(yycontext *) YYRELEASE(yycontext *yyctx)
 }
 
 #endif
-#line 163 "peg.peg"
+#line 144 "peg.peg"
 
 
 void yyerror(char *message)
@@ -1547,7 +1547,7 @@ int main(int argc, char **argv)
 
   if (trailer) {
     if (!nolinesFlag)
-      fprintf(output, "#line %i \"%s\"\n", trailerLine, fileName, trailer);
+      fprintf(output, "#line %i \"%s\"\n", trailerLine, fileName);
     fprintf(output, "%s\n", trailer);
   }
 

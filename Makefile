@@ -34,8 +34,8 @@ peg-new.c: peg.peg minipeg
 peg-split.c: peg.peg minipeg-split
 	./minipeg-split -o $@ $<
 
-# The checked in peg.c matches the built peg-new.c.
-# We also test peg-split.c to test our amalgamation process.
+# Check the pregenerated peg.c matches the built peg-new.c.
+# We also check peg-split.c to test our amalgamation process.
 check-self-host: peg.c peg-new.c peg-split.c .FORCE
 	diff -u peg-new.c peg.c
 	diff -u peg-split.c peg.c
@@ -44,7 +44,7 @@ check: minipeg check-self-host .FORCE
 	$(SHELL) -ec '(cd examples;  $(MAKE))'
 
 clean : .FORCE
-	rm -f minipeg minipeg-split minipeg.c minipeg-new.c peg-new.c
+	rm -f minipeg minipeg-split minipeg.c minipeg-new.c peg-new.c peg-split.c
 	$(SHELL) -ec '(cd examples;  $(MAKE) clean)'
 
 .FORCE :
