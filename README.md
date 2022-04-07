@@ -1,30 +1,26 @@
-# peg/leg &mdash; recursive-descent parser generators for C
+# tinypeg
 
-`peg` and `leg` are tools for generating recursive-descent parsers: programs that perform pattern matching on
-text.  They processes a Parsing Expression Grammar (PEG)[Ford 2004] to produce a program that recognises legal sentences of that grammar.
+`tinypeg` is a tool for generating recursive-descent parsers: programs that perform pattern matching on
+text. 
 
-`peg` processes PEGs written using the original syntax described by Ford.
+Unlike `lex` and `yacc`, `tinypeg` supports unlimited backtracking, provide ordered choice as a means for disambiguation, and can combine scanning (lexical analysis) and parsing (syntactic analysis) into a single activity.
 
-`leg` processes PEGs written using slightly different syntax and conventions that are intended to make it an attractive replacement for parsers built with `lex` and `yacc`.
+`tinypeg` is also easy to embed in your C project by copying the amalgamated release has a permissive license the MIT license. 
 
-Unlike `lex` and `yacc`, `peg` and `leg` support unlimited backtracking, provide ordered choice as a means for disambiguation, and can combine scanning (lexical analysis) and parsing (syntactic analysis) into a single activity.
+## History
 
-`peg` is distributed under the MIT license.  It will not infect your project with a contagious <strike>license</strike> disease if you
-decide to modify it for your own use.  The parser generators that `peg` creates are unencumbered and you are free to use and/or
-distribute them any way you like.
-
-`peg`/`leg` is copyright (c) 2007 by Ian Piumarta.
+`tinypeg` started as a fork of peg/leg https://www.piumarta.com/software/peg/. The aim of the fork was removal of the redundant and confusing alternate syntax,
+and improving ease of distribution by adding amalgamated releases.
 
 ## References
 
-* `peg`/`leg` manual page: [peg.1.html][1]
+* [Ford 2004] Bryan Ford, [*Parsing Expression Grammars: A Recognition-Based Syntactic Foundation*][1]. ACM SIGPLAN Symposium on Principles of Programming Languages (POPL), 2004.
 
-* [Ford 2004] Bryan Ford, [*Parsing Expression Grammars: A Recognition-Based Syntactic Foundation*][2]. ACM SIGPLAN Symposium on Principles of Programming Languages (POPL), 2004.
-
-[1]: http://piumarta.com/software/peg/peg.1.html "peg/leg manual"
-[2]: http://bford.info/pub/lang/peg "Parsing Expression Grammars: A Recognition-Based Syntactic Foundation"
+[1]: http://bford.info/pub/lang/peg "Parsing Expression Grammars: A Recognition-Based Syntactic Foundation"
 
 ## Version history
+
+* 0.1.19
 
 * **0.1.18** ([zip](../../archive/0.1.18.zip), [tar.gz](../../archive/0.1.18.tar.gz)) &mdash; 2016-07-22  
 Add `-P` option to disable `#line` directives.  
