@@ -1,5 +1,7 @@
 # Minipeg
 
+[![builds.sr.ht status](https://builds.sr.ht/~ach/minipeg/commits.svg)](https://builds.sr.ht/~ach/minipeg/commits)
+
 `minipeg` is a tool for generating recursive-descent parsers for use from C.
 
 Unlike `lex` and `yacc`, `minipeg` supports unlimited backtracking, provide ordered choice as a means for disambiguation, and can combine scanning (lexical analysis) and parsing (syntactic analysis) into a single activity.
