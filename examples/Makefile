@@ -8,7 +8,7 @@ TEE = cat >
 all : $(EXAMPLES)
 
 test : .FORCE
-	../peg -o test.peg.c test.peg
+	../leg -o test.leg.c test.leg
 	$(CC) $(CFLAGS) -o test test.c
 	echo 'ab.ac.ad.ae.afg.afh.afg.afh.afi.afj.' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -16,7 +16,7 @@ test : .FORCE
 	@echo
 
 rule : .FORCE
-	../peg -o rule.peg.c rule.peg
+	../peg -o rule.leg.c rule.leg
 	$(CC) $(CFLAGS) -o rule rule.c
 	echo 'abcbcdabcbcdabcbcdabcbcd' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -24,7 +24,7 @@ rule : .FORCE
 	@echo
 
 accept : .FORCE
-	../peg -o accept.peg.c accept.peg
+	../peg -o accept.leg.c accept.leg
 	$(CC) $(CFLAGS) -o accept accept.c
 	echo 'abcbcdabcbcdabcbcdabcbcd' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -40,7 +40,7 @@ wc : .FORCE
 	@echo
 
 dc : .FORCE
-	../peg -o dc.peg.c dc.peg
+	../peg -o dc.leg.c dc.leg
 	$(CC) $(CFLAGS) -o dc dc.c
 	echo '  2  *3 *(3+ 4) ' | ./dc | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -48,7 +48,7 @@ dc : .FORCE
 	@echo
 
 dcv : .FORCE
-	../peg -o dcv.peg.c dcv.peg
+	../peg -o dcv.leg.c dcv.leg
 	$(CC) $(CFLAGS) -o dcv dcv.c
 	echo 'a = 6;  b = 7;  a * b' | ./dcv | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -72,7 +72,7 @@ basic : .FORCE
 	@echo
 
 localpeg : .FORCE
-	../peg -o test.peg.c test.peg
+	../peg -o test.leg.c test.leg
 	$(CC) $(CFLAGS) -o localpeg localpeg.c
 	echo 'ab.ac.ad.ae.afg.afh.afg.afh.afi.afj.' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
