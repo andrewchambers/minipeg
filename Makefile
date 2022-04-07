@@ -28,10 +28,10 @@ minipeg-split: $(SRC)
 minipeg.c: $(SRC) amalgamate.sh
 	sh amalgamate.sh $(SRC) > $@
 
-peg-new.c: peg.leg minipeg
+peg-new.c: peg.peg minipeg
 	./minipeg -o $@ $<
 
-peg-split.c: peg.leg minipeg-split
+peg-split.c: peg.peg minipeg-split
 	./minipeg-split -o $@ $<
 
 # The checked in peg.c matches the built peg-new.c.

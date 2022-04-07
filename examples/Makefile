@@ -1,4 +1,4 @@
-EXAMPLES = test rule accept wc dc dcv calc basic localpeg localleg erract
+EXAMPLES = test rule accept wc dc dcv calc basic local erract
 
 CFLAGS = -g -Wall -O3
 

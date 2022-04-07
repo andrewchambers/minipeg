@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #define YYRULECOUNT 39
-#line 20 "peg.leg"
+#line 20 "peg.peg"
 
 #include "tree.h"
 #include "version.h"
@@ -1395,7 +1395,7 @@ YY_PARSE(yycontext *) YYRELEASE(yycontext *yyctx)
 }
 
 #endif
-#line 163 "peg.leg"
+#line 163 "peg.peg"
 
 
 void yyerror(char *message)
