@@ -20,7 +20,11 @@ and improving ease of distribution by adding amalgamated releases.
 
 ## Version history
 
-* 0.1.19
+* **unreleased** 
+
+Rename project to minipeg.
+Deprecate peg syntax (leg is the new and only syntax).
+Add new amalgamated builds that can be distributed as a single file.
 
 * **0.1.18** ([zip](../../archive/0.1.18.zip), [tar.gz](../../archive/0.1.18.tar.gz)) &mdash; 2016-07-22  
 Add `-P` option to disable `#line` directives.  
