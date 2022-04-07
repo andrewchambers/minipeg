@@ -1,7 +1,7 @@
 # Amalgamate the source code, sqlite3 style.
 set -eu
-echo "/* This file is a generated distributable version of the minipeg project."
-echo " * Visit https://github.com/andrewchambers/minipeg for details. */"
+echo "/* This file is a distributable version of the minipeg[1] project."
+echo "/* [1] https://github.com/andrewchambers/minipeg */"
 
 (
   for f in "$@"
