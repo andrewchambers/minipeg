@@ -292,7 +292,7 @@ int main(int argc, char **argv)
 
   if (trailer) {
     if (!nolinesFlag)
-      fprintf(output, "#line %i \"%s\"\n", trailerLine, fileName, trailer);
+      fprintf(output, "#line %i \"%s\"\n", trailerLine, fileName);
     fprintf(output, "%s\n", trailer);
   }
 

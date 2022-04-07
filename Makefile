@@ -44,7 +44,7 @@ check: minipeg check-self-host .FORCE
 	$(SHELL) -ec '(cd examples;  $(MAKE))'
 
 clean : .FORCE
-	rm -f minipeg minipeg-split minipeg.c minipeg-new.c peg-new.c *.o
+	rm -f minipeg minipeg-split minipeg.c minipeg-new.c peg-new.c
 	$(SHELL) -ec '(cd examples;  $(MAKE) clean)'
 
 .FORCE :
