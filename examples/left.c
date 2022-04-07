@@ -7,7 +7,7 @@
   if (EOF != c) printf("<%c>\n", c);			\
 }
 
-#include "left.leg.c"
+#include "left.peg.c"
 
 int main()
 {

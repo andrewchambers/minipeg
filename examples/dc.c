@@ -7,7 +7,7 @@ int stackp= -1;
 int push(int n)	{ return stack[++stackp]= n; }
 int pop(void)	{ return stack[stackp--]; }
 
-#include "dc.leg.c"
+#include "dc.peg.c"
 
 int main()
 {

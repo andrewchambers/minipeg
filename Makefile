@@ -25,7 +25,7 @@ minipeg: minipeg.c
 minipeg-split: $(SRC)
 	$(CC) $(CFLAGS) -o $@ compile.c tree.c peg.c
 
-minipeg.c: $(SRC)
+minipeg.c: $(SRC) amalgamate.sh
 	sh amalgamate.sh $(SRC) > $@
 
 peg-new.c: peg.leg minipeg
@@ -40,10 +40,11 @@ check-self-host: peg.c peg-new.c peg-split.c .FORCE
 	diff -u peg-new.c peg.c
 	diff -u peg-split.c peg.c
 
-check: minipeg .FORCE
+check: minipeg check-self-host .FORCE
 	$(SHELL) -ec '(cd examples;  $(MAKE))'
 
 clean : .FORCE
 	rm -f minipeg minipeg-split minipeg.c minipeg-new.c peg-new.c *.o
+	$(SHELL) -ec '(cd examples;  $(MAKE) clean)'
 
 .FORCE :

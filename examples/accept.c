@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "accept.leg.c"
+#include "accept.peg.c"
 
 int main()
 {

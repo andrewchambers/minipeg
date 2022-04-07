@@ -10,7 +10,7 @@ int push(int n)	{ return stack[++stackp]= n; }
 int pop(void)	{ return stack[stackp--]; }
 int top(void)	{ return stack[stackp]; }
 
-#include "dcv.leg.c"
+#include "dcv.peg.c"
 
 int main()
 {
