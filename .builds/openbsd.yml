@@ -1,0 +1,5 @@
+image: openbsd/latest
+sources:
+  - https://github.com/andrewchambers/minipeg
+tasks:
+  - build: make check

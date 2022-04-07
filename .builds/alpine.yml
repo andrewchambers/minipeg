@@ -1,0 +1,5 @@
+image: alpine/latest
+sources:
+  - https://github.com/andrewchambers/minias
+tasks:
+  - build: make check
