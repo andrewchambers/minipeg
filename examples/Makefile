@@ -16,7 +16,7 @@ test : .FORCE
 	@echo
 
 rule : .FORCE
-	../peg -o rule.leg.c rule.leg
+	../leg -o rule.leg.c rule.leg
 	$(CC) $(CFLAGS) -o rule rule.c
 	echo 'abcbcdabcbcdabcbcdabcbcd' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -24,7 +24,7 @@ rule : .FORCE
 	@echo
 
 accept : .FORCE
-	../peg -o accept.leg.c accept.leg
+	../leg -o accept.leg.c accept.leg
 	$(CC) $(CFLAGS) -o accept accept.c
 	echo 'abcbcdabcbcdabcbcdabcbcd' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -40,7 +40,7 @@ wc : .FORCE
 	@echo
 
 dc : .FORCE
-	../peg -o dc.leg.c dc.leg
+	../leg -o dc.leg.c dc.leg
 	$(CC) $(CFLAGS) -o dc dc.c
 	echo '  2  *3 *(3+ 4) ' | ./dc | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -48,7 +48,7 @@ dc : .FORCE
 	@echo
 
 dcv : .FORCE
-	../peg -o dcv.leg.c dcv.leg
+	../leg -o dcv.leg.c dcv.leg
 	$(CC) $(CFLAGS) -o dcv dcv.c
 	echo 'a = 6;  b = 7;  a * b' | ./dcv | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -72,7 +72,7 @@ basic : .FORCE
 	@echo
 
 localpeg : .FORCE
-	../peg -o test.leg.c test.leg
+	../leg -o test.leg.c test.leg
 	$(CC) $(CFLAGS) -o localpeg localpeg.c
 	echo 'ab.ac.ad.ae.afg.afh.afg.afh.afi.afj.' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -96,9 +96,6 @@ erract : .FORCE
 	@echo
 
 clean : .FORCE
-	rm -f *~ *.o *.[pl]eg.[cd] $(EXAMPLES)
-	rm -rf *.dSYM
-
-spotless : clean
+	rm -f *.o *.leg.c $(EXAMPLES)
 
 .FORCE :

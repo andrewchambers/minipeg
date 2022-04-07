@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "rule.peg.c"
+#include "rule.leg.c"
 
 int main()
 {
