@@ -1,15 +1,15 @@
-# tinypeg
+# minipeg
 
-`tinypeg` is a tool for generating recursive-descent parsers: programs that perform pattern matching on
+`minipeg` is a tool for generating recursive-descent parsers: programs that perform pattern matching on
 text. 
 
-Unlike `lex` and `yacc`, `tinypeg` supports unlimited backtracking, provide ordered choice as a means for disambiguation, and can combine scanning (lexical analysis) and parsing (syntactic analysis) into a single activity.
+Unlike `lex` and `yacc`, `minipeg` supports unlimited backtracking, provide ordered choice as a means for disambiguation, and can combine scanning (lexical analysis) and parsing (syntactic analysis) into a single activity.
 
-`tinypeg` is also easy to embed in your C project by copying the amalgamated release has a permissive license the MIT license. 
+`minipeg` is also easy to embed in your C project by copying the amalgamated release (which has the permissive license MIT license).
 
 ## History
 
-`tinypeg` started as a fork of peg/leg https://www.piumarta.com/software/peg/. The aim of the fork was removal of the redundant and confusing alternate syntax,
+`minipeg` started as a fork of peg/leg https://www.piumarta.com/software/peg/. The aim of the fork was removal of the redundant and confusing alternate syntax,
 and improving ease of distribution by adding amalgamated releases.
 
 ## References
