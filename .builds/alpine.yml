@@ -2,4 +2,6 @@ image: alpine/latest
 sources:
   - https://github.com/andrewchambers/minipeg
 tasks:
-  - build: make check
+  - build: |
+      cd minipeg
+      make check
