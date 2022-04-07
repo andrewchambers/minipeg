@@ -1,3 +1,1 @@
-#define PEG_MAJOR	0
-#define PEG_MINOR	1
-#define PEG_LEVEL	18
+#define MINIPEG_VERSION "0.1.19"
