@@ -1,6 +1,6 @@
 EXAMPLES = test rule accept wc dc dcv calc basic localpeg localleg erract
 
-CFLAGS = -g -O3
+CFLAGS = -g -Wall -O3
 
 DIFF = diff
 TEE = cat >
@@ -8,7 +8,7 @@ TEE = cat >
 all : $(EXAMPLES)
 
 test : .FORCE
-	../leg -o test.leg.c test.leg
+	../minipeg -o test.leg.c test.leg
 	$(CC) $(CFLAGS) -o test test.c
 	echo 'ab.ac.ad.ae.afg.afh.afg.afh.afi.afj.' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -16,7 +16,7 @@ test : .FORCE
 	@echo
 
 rule : .FORCE
-	../leg -o rule.leg.c rule.leg
+	../minipeg -o rule.leg.c rule.leg
 	$(CC) $(CFLAGS) -o rule rule.c
 	echo 'abcbcdabcbcdabcbcdabcbcd' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -24,7 +24,7 @@ rule : .FORCE
 	@echo
 
 accept : .FORCE
-	../leg -o accept.leg.c accept.leg
+	../minipeg -o accept.leg.c accept.leg
 	$(CC) $(CFLAGS) -o accept accept.c
 	echo 'abcbcdabcbcdabcbcdabcbcd' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -32,7 +32,7 @@ accept : .FORCE
 	@echo
 
 wc : .FORCE
-	../leg -o wc.leg.c wc.leg
+	../minipeg -o wc.leg.c wc.leg
 	$(CC) $(CFLAGS) -o wc wc.leg.c
 	cat wc.leg | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -40,7 +40,7 @@ wc : .FORCE
 	@echo
 
 dc : .FORCE
-	../leg -o dc.leg.c dc.leg
+	../minipeg -o dc.leg.c dc.leg
 	$(CC) $(CFLAGS) -o dc dc.c
 	echo '  2  *3 *(3+ 4) ' | ./dc | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -48,7 +48,7 @@ dc : .FORCE
 	@echo
 
 dcv : .FORCE
-	../leg -o dcv.leg.c dcv.leg
+	../minipeg -o dcv.leg.c dcv.leg
 	$(CC) $(CFLAGS) -o dcv dcv.c
 	echo 'a = 6;  b = 7;  a * b' | ./dcv | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -56,7 +56,7 @@ dcv : .FORCE
 	@echo
 
 calc : .FORCE
-	../leg -o calc.leg.c calc.leg
+	../minipeg -o calc.leg.c calc.leg
 	$(CC) $(CFLAGS) -o calc calc.leg.c
 	echo 'a = 6;  b = 7;  a * b' | ./calc | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -64,7 +64,7 @@ calc : .FORCE
 	@echo
 
 basic : .FORCE
-	../leg -o basic.leg.c basic.leg
+	../minipeg -o basic.leg.c basic.leg
 	$(CC) $(CFLAGS) -o basic basic.leg.c
 	( echo 'load "test"'; echo "run" ) | ./basic | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -72,7 +72,7 @@ basic : .FORCE
 	@echo
 
 localpeg : .FORCE
-	../leg -o test.leg.c test.leg
+	../minipeg -o test.leg.c test.leg
 	$(CC) $(CFLAGS) -o localpeg localpeg.c
 	echo 'ab.ac.ad.ae.afg.afh.afg.afh.afi.afj.' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -80,7 +80,7 @@ localpeg : .FORCE
 	@echo
 
 localleg : .FORCE
-	../leg -o localleg.leg.c localleg.leg
+	../minipeg -o localleg.leg.c localleg.leg
 	$(CC) $(CFLAGS) -o localleg localleg.leg.c
 	./$@ < localleg.leg | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out
@@ -88,7 +88,7 @@ localleg : .FORCE
 	@echo
 
 erract : .FORCE
-	../leg -o erract.leg.c erract.leg
+	../minipeg -o erract.leg.c erract.leg
 	$(CC) $(CFLAGS) -o erract erract.leg.c
 	echo '6*9' | ./$@ | $(TEE) $@.out
 	$(DIFF) $@.ref $@.out

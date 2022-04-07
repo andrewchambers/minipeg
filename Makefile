@@ -2,49 +2,49 @@ DESTDIR	=
 PREFIX	= /usr/local
 BINDIR	= $(DESTDIR)$(PREFIX)/bin
 MANDIR	= $(DESTDIR)$(PREFIX)/man/man1
-CFLAGS = -g -Wall $(OFLAGS) $(XFLAGS) -Isrc
-OFLAGS = -O3 -DNDEBUG
+CFLAGS = -g -O2 -Wall
 
-OBJ = peg.o tree.o compile.o
-NEWOBJ = peg-new.o tree.o compile.o
+COMMONSRC = version.h tree.h compile.c tree.c
+SRC = $(COMMONSRC) peg.c
+NEWSRC = $(COMMONSRC) peg-new.c
 
-all : leg
+all: minipeg
 
-leg : $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $(OBJ)
-
-leg-new : $(NEWOBJ)
-	$(CC) $(CFLAGS) -o $@ $(NEWOBJ)
-
-install : $(BINDIR) $(BINDIR)/leg $(MANDIR) $(MANDIR)/peg.1
-
-$(BINDIR) :
-	mkdir -p $(BINDIR)
-
-$(BINDIR)/% : %
-	cp -p $< $@
-	strip $@
+install: $(BINDIR) $(BINDIR)/leg $(MANDIR) $(MANDIR)/peg.1
+	mkdir -p $(MANDIR) $(BINDIR)
+	cp minipeg $(BINDIR)
+	cp minipeg.1 $(MANDIR)
 
 $(MANDIR) :
 	mkdir -p $(MANDIR)
 
-$(MANDIR)/% : src/%
-	cp -p $< $@
+minipeg: minipeg.c
 
-uninstall : .FORCE
-	rm -f $(BINDIR)/leg
-	rm -f $(MANDIR)/peg.1
+minipeg-new: minipeg-new.c
 
-check-peg : peg.c .FORCE
-	diff peg-new.c peg.c
+minipeg-split: $(SRC)
+	$(CC) $(CFLAGS) -o $@ compile.c tree.c peg.c
 
-peg-new.c :peg.leg leg
-	./leg -o $@ $<
+minipeg.c: $(SRC)
+	sh amalg.sh $(SRC) > $@
 
-test examples : leg .FORCE
+minipeg-new.c: $(NEWSRC)
+	sh amalg.sh $(NEWSRC) > $@
+
+peg-new.c: peg.leg minipeg
+	./minipeg -o $@ $<
+
+peg-split.c: peg.leg minipeg-split
+	./minipeg-split -o $@ $<
+
+check-self-host: peg.c peg-new.c peg-split.c .FORCE
+	diff -u peg-new.c peg.c
+	diff -u peg-split.c peg.c
+
+check: minipeg .FORCE
 	$(SHELL) -ec '(cd examples;  $(MAKE))'
 
 clean : .FORCE
-	rm -f leg leg-new leg-new.c *.o
+	rm -f minipeg minipeg.c minipeg-new.c *.o
 
 .FORCE :
