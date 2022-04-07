@@ -25,8 +25,8 @@ minipeg: minipeg.c
 minipeg-split: $(SRC)
 	$(CC) $(CFLAGS) -o $@ compile.c tree.c peg.c
 
-minipeg.c: $(SRC) amalgamate.sh
-	sh amalgamate.sh $(SRC) > $@
+minipeg.c: $(SRC) amalg.sh
+	sh amalg.sh $(SRC) > $@
 
 peg-new.c: peg.peg minipeg
 	./minipeg -o $@ $<
