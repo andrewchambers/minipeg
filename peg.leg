@@ -18,15 +18,15 @@
 # Last edited: 2016-07-22 09:45:53 by piumarta on zora.local
 
 %{
-# include "tree.h"
-# include "version.h"
+#include "tree.h"
+#include "version.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <libgen.h>
-# include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <libgen.h>
+#include <assert.h>
 
   typedef struct Header Header;
 

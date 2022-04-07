@@ -4,17 +4,17 @@
 #include <stdlib.h>
 #include <string.h>
 #define YYRULECOUNT 39
-#line 20 "leg.leg"
+#line 20 "peg.leg"
 
-# include "tree.h"
-# include "version.h"
+#include "tree.h"
+#include "version.h"
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
-# include <libgen.h>
-# include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <libgen.h>
+#include <assert.h>
 
   typedef struct Header Header;
 
@@ -1395,7 +1395,7 @@ YY_PARSE(yycontext *) YYRELEASE(yycontext *yyctx)
 }
 
 #endif
-#line 163 "leg.leg"
+#line 163 "peg.leg"
 
 
 void yyerror(char *message)

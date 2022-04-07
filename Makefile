@@ -5,8 +5,8 @@ MANDIR	= $(DESTDIR)$(PREFIX)/man/man1
 CFLAGS = -g -Wall $(OFLAGS) $(XFLAGS) -Isrc
 OFLAGS = -O3 -DNDEBUG
 
-OBJ = leg.o tree.o compile.o
-NEWOBJ = leg-new.o tree.o compile.o
+OBJ = peg.o tree.o compile.o
+NEWOBJ = peg-new.o tree.o compile.o
 
 all : leg
 
@@ -35,16 +35,16 @@ uninstall : .FORCE
 	rm -f $(BINDIR)/leg
 	rm -f $(MANDIR)/peg.1
 
-check-leg : leg.c .FORCE
-	diff leg-new.c leg.c
+check-peg : peg.c .FORCE
+	diff peg-new.c peg.c
 
-leg-new.c :leg.leg leg
+peg-new.c :peg.leg leg
 	./leg -o $@ $<
 
 test examples : leg .FORCE
 	$(SHELL) -ec '(cd examples;  $(MAKE))'
 
 clean : .FORCE
-	rm -f leg *.o
+	rm -f leg leg-new leg-new.c *.o
 
 .FORCE :

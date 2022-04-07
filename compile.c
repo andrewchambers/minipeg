@@ -401,11 +401,10 @@ static void Rule_compile_c2(Node *node)
     Rule_compile_c2(node->rule.next);
 }
 
-static char *header= "\
-#include <stdio.h>\n\
-#include <stdlib.h>\n\
-#include <string.h>\n\
-";
+static char *header= 
+"#include <stdio.h>\n"
+"#include <stdlib.h>\n"
+"#include <string.h>\n";
 
 static char *preamble= "\
 #ifndef YY_MALLOC\n\
