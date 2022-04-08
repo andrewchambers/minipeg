@@ -20,7 +20,7 @@ See some examples:
 ## History
 
 `minipeg` started as a fork of peg/leg https://www.piumarta.com/software/peg/.
-The aim of the fork is simplification (by removing removing the 'peg' out of peg/leg)
+The aim of the fork is simplification (by removing the 'peg' syntax out of peg/leg)
 and improving ease of distribution with a single file amalgamation.
 
 ## References
