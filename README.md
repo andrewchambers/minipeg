@@ -6,7 +6,7 @@
 
 Unlike `lex` and `yacc`, `minipeg` supports unlimited backtracking, provide ordered choice as a means for disambiguation, and can combine scanning (lexical analysis) and parsing (syntactic analysis) into a single activity.
 
-`minipeg` is also easy to embed in your C project by copying the amalgamated release (which has the permissive license MIT license).
+`minipeg` is also easy to add to your C project by copying minipeg.c into your project.
 
 ## Examples
 
