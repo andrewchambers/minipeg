@@ -119,7 +119,7 @@ static void end(void)		{ fprintf(output, "\n  }"); }
 static void label(int n)	{ fprintf(output, "\n  l%d:;\t", n); }
 static void jump(int n)		{ fprintf(output, "  goto l%d;", n); }
 static void save(int n)		{ fprintf(output, "  int yypos%d= yy->__pos, yythunkpos%d= yy->__thunkpos;", n, n); }
-static void restore(int n)	{ fprintf(output,     "  yy->__pos= yypos%d; yy->__thunkpos= yythunkpos%d;", n, n); }
+static void restore(int n)	{ fprintf(output, "  yy->__pos= yypos%d; yy->__thunkpos= yythunkpos%d;", n, n); }
 
 static void Node_compile_c_ko(Node *node, int ko)
 {

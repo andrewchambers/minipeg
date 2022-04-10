@@ -13,7 +13,7 @@ all: minipeg
 install: $(BINDIR) $(BINDIR)/leg $(MANDIR) $(MANDIR)/peg.1
 	mkdir -p $(MANDIR) $(BINDIR)
 	cp minipeg $(BINDIR)
-	cp minipeg.1 $(MANDIR)
+	cp doc/minipeg.1 $(MANDIR)
 
 $(MANDIR) :
 	mkdir -p $(MANDIR)
@@ -35,6 +35,9 @@ peg-new.c: peg.peg minipeg
 peg-amalg.c: peg.peg minipeg-amalg
 	./minipeg-amalg -o $@ peg.peg
 
+docs/index.html: .FORCE
+	$(SHELL) -c '(cd docs ; sh ./index.html.sh)' > $@
+
 # Check the pregenerated peg.c matches the built peg-new.c.
 # We also check peg-amalg.c to test our amalgamation process.
 check-self-host: peg.c peg-new.c peg-amalg.c .FORCE
@@ -45,7 +48,7 @@ check: minipeg check-self-host .FORCE
 	$(SHELL) -ec '(cd examples;  $(MAKE))'
 
 clean : .FORCE
-	rm -f minipeg minipeg-split $(GENSRC) $(OBJ)
+	rm -f minipeg minipeg-amalg $(GENSRC) $(OBJ)
 	$(SHELL) -ec '(cd examples;  $(MAKE) clean)'
 
 .FORCE :

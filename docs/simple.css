@@ -1,0 +1,14 @@
+pre, p, h3		{ margin: 0.9em 0px 0.9em; }
+article, .container	{ width: 800px; margin: auto; padding 0 20px 0 20px; }
+h1			{ font-family: arial, sans; }
+h2			{ text-align: center; margin-bottom: 1em; }
+pre, code		{ line-height: normal; overflow: auto; font-size: 0.8em; }
+#logo			{ vertical-align: middle; margin-right: 16px; }
+body			{ line-height: 1.3; }
+html			{ font-size: 20px; font-family: "Charter","Georgia",'Times New Roman',serif; }
+.bnf			{ background-color: white; padding-left: 2em; }
+
+@media only screen and (max-device-width: 480px) {
+article, .container	{ width: 100%; }
+html			{ font-size: 13px; }
+}
