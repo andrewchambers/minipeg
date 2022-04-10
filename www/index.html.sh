@@ -3,12 +3,12 @@ set -eu
 cat <<EOF
 <!doctype html>
 <meta name=viewport content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./simple.css" type="text/css" />
+<link rel="stylesheet" href="/minipeg/simple.css" type="text/css" />
 
 <title>Minipeg</title>
 </body>
 <div class="container">
-<h1><img id="logo" src="logo.png" alt>Minipeg</h1>
+<h1><img id="logo" src="/minipeg/logo.png" alt>Minipeg</h1>
 <p>
 Minipeg is a parser generator for C you can easily add
 to your project as a single file.
