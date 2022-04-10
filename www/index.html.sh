@@ -15,8 +15,8 @@ to your project as a single file.
 </p>
 
 <ul>
-<li>Single file distribution <a href="https://git.sr.ht/~ach/minipeg/blob/upstream/minipeg.c">minipeg.c</a></li>
-<li>Example <a href="https://git.sr.ht/~ach/minipeg/blob/upstream/examples/calc.peg">calculator</a></li>
+<li>Single file distribution <a href="https://git.sr.ht/~ach/minipeg/blob/master/minipeg.c">minipeg.c</a></li>
+<li>Example <a href="https://git.sr.ht/~ach/minipeg/blob/master/examples/calc.peg">calculator</a></li>
 <li>Example <a href="https://git.sr.ht/~ach/minias/blob/master/asm.peg">x86_64 assembler</a></li>
 <li><a href="https://git.sr.ht/~ach/minipeg">Source code</a></li>
 </ul>
