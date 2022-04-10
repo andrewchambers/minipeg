@@ -15,7 +15,17 @@ See some examples:
 - [word count](./examples/wc.peg)
 - [calculator](./examples/calc.peg)
 - [basic interpeter](./examples/basic.peg)
-- [x86_64 assembler](https://github.com/andrewchambers/minias/blob/cd21b90feaa9b66296b8614023349fae7d314b4b/asm.peg)
+- [x86_64 assembler](https://raw.githubusercontent.com/andrewchambers/minias/master/asm.peg)
+
+## Documentation
+
+Read it online [here](https://andrewchambers.github.io/minipeg).
+
+Or read the man page directly:
+
+```
+man ./doc/minias.1
+```
 
 ## History
 

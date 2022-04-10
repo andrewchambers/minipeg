@@ -15,10 +15,10 @@ to your project as a single file.
 </p>
 
 <ul>
-<li>Single file distribution <a href="">minipeg.c<a/></li>
-<li>Example <a href="">calculator</a></li>
-<li>Example <a href="https://github.com/andrewchambers/minias/blob/master/asm.peg">x86_64 assembler</a></li>
-<li><a href="">Source repository</a></li>
+<li>Single file distribution <a href="https://github.com/andrewchambers/minipeg/releases">minipeg.c<a/></li>
+<li>Example <a href="https://raw.githubusercontent.com/andrewchambers/minipeg/upstream/examples/calc.peg">calculator</a></li>
+<li>Example <a href="https://raw.githubusercontent.com/andrewchambers/minias/master/asm.peg">x86_64 assembler</a></li>
+<li><a href="https://github.com/andrewchambers/minipeg">Source code</a></li>
 </ul>
 
 <h2>Man Page</h2>
