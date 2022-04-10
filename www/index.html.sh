@@ -5,7 +5,7 @@ cat <<EOF
 <meta name=viewport content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/minipeg/simple.css" type="text/css" />
 
-<title>Minipeg - C parser generator</title>
+<title>Minipeg - Parser generator for C</title>
 </body>
 <div class="container">
 <h1><img id="logo" src="/minipeg/logo.png" alt>Minipeg</h1>
