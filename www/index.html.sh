@@ -24,7 +24,7 @@ to your project as a single file.
 <h2>Man Page</h2>
 EOF
 echo "<pre>"
-mandoc -Tascii minipeg.1 | col -b
+mandoc -Tascii minipeg.1 | col -b | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g; s/'"'"'/\&#39;/g'
 echo "</pre>"
 cat <<EOF
 </div>
