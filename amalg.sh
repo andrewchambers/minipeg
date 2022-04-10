@@ -1,10 +1,10 @@
 # Amalgamate the source code, sqlite3 style.
 set -eu
 echo "/*"
-echo "  -----------------------------------------------------------------------"
-echo "  |    This file is a generated redistributable version of minipeg.     |"
-echo "  | See https://github.com/andrewchambers/minipeg for more information. |"
-echo "  -----------------------------------------------------------------------"
+echo "  ----------------------------------------------------------------"
+echo "  | This file is a generated redistributable version of minipeg. |"
+echo "  |   See https://ach.srht.site/minipeg/ for more information.   |"
+echo "  ----------------------------------------------------------------"
 sed 's/^/  /g' LICENSE
 echo ""
 echo "*/"

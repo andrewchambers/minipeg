@@ -1,8 +1,8 @@
 /*
-  -----------------------------------------------------------------------
-  |    This file is a generated redistributable version of minipeg.     |
-  | See https://github.com/andrewchambers/minipeg for more information. |
-  -----------------------------------------------------------------------
+  ----------------------------------------------------------------
+  | This file is a generated redistributable version of minipeg. |
+  |   See https://ach.srht.site/minipeg/ for more information.   |
+  ----------------------------------------------------------------
   Copyright (c) 2007-2013, Ian Piumarta
   Copyright (c) 2022, Andrew Chambers
   All rights reserved.
