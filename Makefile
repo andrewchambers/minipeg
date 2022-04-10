@@ -33,8 +33,7 @@ minipeg-new.c: $(SRC) amalg.sh
 www/index.html: .FORCE
 	sh ./www/index.html.sh > $@
 
-# Check the pregenerated peg.c matches the built peg-new.c.
-# We also check peg-amalg.c to test our amalgamation process.
+# Check the bootstrap minipeg.c matches the built minipeg-new.c.
 check-self-host: minipeg-new.c .FORCE
 	diff -u minipeg.c minipeg-new.c
 
