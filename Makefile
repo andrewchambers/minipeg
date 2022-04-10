@@ -33,15 +33,18 @@ minipeg-new.c: $(SRC) amalg.sh
 www/index.html: .FORCE
 	sh ./www/index.html.sh > $@
 
-# Check the bootstrap minipeg.c matches the built minipeg-new.c.
-check-self-host: minipeg-new.c .FORCE
-	diff -u minipeg.c minipeg-new.c
+%.c.noversion : %.c
+	grep -v -e '#define MINIPEG_VERSION' $< > $@
+
+# Check the bootstrap minipeg.c matches the built minipeg-new.c (without version info).
+check-self-host: minipeg.c.noversion minipeg-new.c.noversion .FORCE
+	diff -u minipeg.c.noversion minipeg-new.c.noversion
 
 check: minipeg check-self-host .FORCE
 	$(SHELL) -ec '(cd examples;  $(MAKE))'
 
 clean : .FORCE
-	rm -f minipeg bootstrap-minipeg $(GENSRC) $(OBJ)
+	rm -f minipeg bootstrap-minipeg rm *.c.noversion $(GENSRC) $(OBJ)
 	$(SHELL) -ec '(cd examples;  $(MAKE) clean)'
 
 .FORCE :
