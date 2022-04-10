@@ -10,7 +10,7 @@ cat <<EOF
 <div class="container">
 <h1><img id="logo" src="/minipeg/logo.png" alt>Minipeg</h1>
 <p>
-Minipeg is a parser generator for C you can easily add
+Minipeg is a parser generator for C that you can easily add
 to your project as a single file.
 </p>
 
