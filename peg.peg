@@ -60,7 +60,6 @@ trailer=	'%%'					{ headerLine= lineNumber }
 definition=	identifier 				{ if (push(beginRule(findRule(yytext)))->rule.expression)
 							    fprintf(stderr, "rule '%s' redefined\n", yytext); }
 			EQUAL expression		{ Node *e= pop();  Rule_setExpression(pop(), e); }
-			SEMICOLON?											#{YYACCEPT}
 
 expression=	sequence (BAR sequence			{ Node *f= pop();  push(Alternate_append(pop(), f)); }
 			    )*
@@ -119,7 +118,6 @@ braces=		'{' braces* '}'
 
 EQUAL=		'=' -
 COLON=		':' -
-SEMICOLON=	';' -
 BAR=		'|' -
 AND=		'&' -
 NOT=		'!' -

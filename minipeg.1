@@ -382,10 +382,6 @@ Some notes regarding rules and and patterns follow.
 Hyphens can appear as letters in the names of rules.  Each hyphen is
 converted into an underscore in the generated C source code.  A
 single hyphen '\-' is a legal rule name.
-.TP
-.IB pattern\  ;
-A semicolon punctuator can optionally terminate a
-.IR pattern .
 .PP
 Within actions you can access and manipulate named values.
 .TP
@@ -417,7 +413,7 @@ above description.
     
     trailer =       '%%' < .* >
     
-    definition =    identifier EQUAL expression SEMICOLON?
+    definition =    identifier EQUAL expression
     
     expression =    sequence ( BAR sequence )*
     
@@ -461,7 +457,6 @@ above description.
     
     EQUAL =         '=' \-
     COLON =         ':' \-
-    SEMICOLON =     ';' \-
     BAR =           '|' \-
     AND =           '&' \-
     NOT =           '!' \-
