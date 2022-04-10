@@ -19,12 +19,12 @@ See some examples:
 
 ## Documentation
 
-Read it online [here](https://ach.srht.site/minipeg).
+Read it online at the [project website](https://ach.srht.site/minipeg).
 
 Or read the man page directly:
 
 ```
-man ./doc/minias.1
+man ./doc/minipeg.1
 ```
 
 ## History
