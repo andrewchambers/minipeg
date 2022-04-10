@@ -1,11 +1,5 @@
-image: alpine/latest
-packages:
-- hut
-- mandoc
-- util-linux
+image: alpine/edge
 tasks:
-- upload: |
-    cd minipeg
-    make www/index.html
-    tar -C www -cvz . > ./site.tar.gz
-    hut pages publish -d $site site.tar.gz
+  - build: |
+      cd minipeg
+      make check
