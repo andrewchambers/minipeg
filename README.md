@@ -19,7 +19,7 @@ See some examples:
 
 ## Documentation
 
-Read it online [here](https://andrewchambers.github.io/minipeg).
+Read it online [here](https://ach.srht.site/minipeg).
 
 Or read the man page directly:
 

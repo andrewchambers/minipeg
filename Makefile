@@ -35,8 +35,8 @@ peg-new.c: peg.peg minipeg
 peg-amalg.c: peg.peg minipeg-amalg
 	./minipeg-amalg -o $@ peg.peg
 
-docs/index.html: .FORCE
-	$(SHELL) -c '(cd docs ; sh ./index.html.sh)' > $@
+www/index.html: .FORCE
+	$(SHELL) -c '(cd www ; sh ./index.html.sh)' > $@
 
 # Check the pregenerated peg.c matches the built peg-new.c.
 # We also check peg-amalg.c to test our amalgamation process.

@@ -1,0 +1,12 @@
+image: alpine/edge
+oauth: pages.sr.ht/PAGES:RW
+packages:
+- hut
+environment:
+  site: ach.srht.site/minipeg
+tasks:
+- package: |
+    make www/index.html
+    tar -C www -cvz . > ./site.tar.gz
+- upload: |
+    hut pages publish -d $site www/site.tar.gz

@@ -1,6 +1,4 @@
 image: alpine/latest
-sources:
-  - https://github.com/andrewchambers/minipeg
 tasks:
   - build: |
       cd minipeg
