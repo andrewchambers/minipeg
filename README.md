@@ -1,6 +1,6 @@
 # Minipeg
 
-[![builds.sr.ht status](https://builds.sr.ht/~ach/minipeg/commits.svg)](https://builds.sr.ht/~ach/minipeg/commits)
+[![builds.sr.ht status](https://builds.sr.ht/~ach/minipeg.svg)](https://builds.sr.ht/~ach/minipeg)
 
 `minipeg` is a tool for generating recursive-descent parsers for use from C.
 
