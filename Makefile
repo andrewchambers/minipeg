@@ -4,9 +4,9 @@ BINDIR	= $(DESTDIR)$(PREFIX)/bin
 MANDIR	= $(DESTDIR)$(PREFIX)/man/man1
 CFLAGS = -g -O2 -Wall
 
-COMMONSRC = version.h tree.h compile.c tree.c
-SRC = $(COMMONSRC) peg.c
-NEWSRC = $(COMMONSRC) peg-new.c
+SRC = version.h tree.h compile.c tree.c peg.c
+GENSRC = minipeg.c peg-new.c peg-amalg.c
+OBJ = compile.o tree.o peg.o
 
 all: minipeg
 
@@ -18,33 +18,34 @@ install: $(BINDIR) $(BINDIR)/leg $(MANDIR) $(MANDIR)/peg.1
 $(MANDIR) :
 	mkdir -p $(MANDIR)
 
-# Minipeg distributable amalgamation.
-minipeg: minipeg.c
-
 # Minipeg built from individual c files.
-minipeg-split: $(SRC)
-	$(CC) $(CFLAGS) -o $@ compile.c tree.c peg.c
+minipeg: $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $(OBJ)
+
+# Minipeg distributable amalgamation.
+minipeg-amalg: minipeg.c
+	$(CC) $(CFLAGS) -o $@ minipeg.c
 
 minipeg.c: $(SRC) amalg.sh
 	sh amalg.sh $(SRC) > $@
 
 peg-new.c: peg.peg minipeg
-	./minipeg -o $@ $<
+	./minipeg -o $@ peg.peg
 
-peg-split.c: peg.peg minipeg-split
-	./minipeg-split -o $@ $<
+peg-amalg.c: peg.peg minipeg-amalg
+	./minipeg-amalg -o $@ peg.peg
 
 # Check the pregenerated peg.c matches the built peg-new.c.
-# We also check peg-split.c to test our amalgamation process.
-check-self-host: peg.c peg-new.c peg-split.c .FORCE
+# We also check peg-amalg.c to test our amalgamation process.
+check-self-host: peg.c peg-new.c peg-amalg.c .FORCE
 	diff -u peg-new.c peg.c
-	diff -u peg-split.c peg.c
+	diff -u peg-amalg.c peg.c
 
 check: minipeg check-self-host .FORCE
 	$(SHELL) -ec '(cd examples;  $(MAKE))'
 
 clean : .FORCE
-	rm -f minipeg minipeg-split minipeg.c minipeg-new.c peg-new.c peg-split.c
+	rm -f minipeg minipeg-split $(GENSRC) $(OBJ)
 	$(SHELL) -ec '(cd examples;  $(MAKE) clean)'
 
 .FORCE :
