@@ -5,7 +5,7 @@ MANDIR	= $(DESTDIR)$(PREFIX)/man/man1
 CFLAGS = -g -O2 -Wall
 
 SRC = version.h tree.h compile.c tree.c peg.c
-GENSRC = minipeg.c peg-new.c peg-amalg.c
+GENSRC = minipeg.c peg-new.c peg-amalg.c www/index.html
 OBJ = compile.o tree.o peg.o
 
 all: minipeg
@@ -36,7 +36,7 @@ peg-amalg.c: peg.peg minipeg-amalg
 	./minipeg-amalg -o $@ peg.peg
 
 www/index.html: .FORCE
-	$(SHELL) -c '(cd www ; sh ./index.html.sh)' > $@
+	sh ./www/index.html.sh > $@
 
 # Check the pregenerated peg.c matches the built peg-new.c.
 # We also check peg-amalg.c to test our amalgamation process.

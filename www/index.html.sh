@@ -15,16 +15,16 @@ to your project as a single file.
 </p>
 
 <ul>
-<li>Single file distribution <a href="https://github.com/andrewchambers/minipeg/releases">minipeg.c<a/></li>
-<li>Example <a href="https://raw.githubusercontent.com/andrewchambers/minipeg/upstream/examples/calc.peg">calculator</a></li>
-<li>Example <a href="https://raw.githubusercontent.com/andrewchambers/minias/master/asm.peg">x86_64 assembler</a></li>
-<li><a href="https://github.com/andrewchambers/minipeg">Source code</a></li>
+<li>Single file distribution <a href="ach.srht.site/minipeg/minipeg.c">minipeg.c<a/></li>
+<li>Example <a href="https://git.sr.ht/~ach/minipeg/blob/upstream/examples/calc.peg">calculator</a></li>
+<li>Example <a href="https://git.sr.ht/~ach/minias/blob/master/asm.peg">x86_64 assembler</a></li>
+<li><a href="https://git.sr.ht/~ach/minipeg">Source code</a></li>
 </ul>
 
 <h2>Man Page</h2>
 EOF
 echo "<pre>"
-mandoc -Tascii -Ofragment ./minipeg.1 | col -b
+mandoc -Tascii minipeg.1 | col -b
 echo "</pre>"
 cat <<EOF
 </div>
