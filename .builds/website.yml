@@ -5,8 +5,9 @@ packages:
 environment:
   site: ach.srht.site/minipeg
 tasks:
-- package: |
+- website: |
+    cd minipeg
     make www/index.html
+    rm www/*.sh
     tar -C www -cvz . > ./site.tar.gz
-- upload: |
     hut pages publish -d $site www/site.tar.gz
