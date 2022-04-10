@@ -389,6 +389,9 @@ static char *header=
 "#include <string.h>\n";
 
 static char *preamble= "\
+#ifndef YY_MAYBE_UNUSED\n\
+#define YY_MAYBE_UNUSED __attribute__((unused))\n\
+#endif\n\
 #ifndef YY_MALLOC\n\
 #define YY_MALLOC(C, N)		malloc(N)\n\
 #endif\n\
@@ -499,7 +502,7 @@ yycontext *yyctx= &_yyctx;\n\
 #endif\n\
 #endif\n\
 \n\
-YY_LOCAL(int) yyrefill(yycontext *yy)\n\
+YY_LOCAL(int) YY_MAYBE_UNUSED yyrefill(yycontext *yy)\n\
 {\n\
   int yyn;\n\
   while (yy->__buflen - yy->__pos < 512)\n\
@@ -517,14 +520,14 @@ YY_LOCAL(int) yyrefill(yycontext *yy)\n\
   return 1;\n\
 }\n\
 \n\
-YY_LOCAL(int) yymatchDot(yycontext *yy)\n\
+YY_LOCAL(int) YY_MAYBE_UNUSED yymatchDot(yycontext *yy)\n\
 {\n\
   if (yy->__pos >= yy->__limit && !yyrefill(yy)) return 0;\n\
   ++yy->__pos;\n\
   return 1;\n\
 }\n\
 \n\
-YY_LOCAL(int) yymatchChar(yycontext *yy, int c)\n\
+YY_LOCAL(int) YY_MAYBE_UNUSED yymatchChar(yycontext *yy, int c)\n\
 {\n\
   if (yy->__pos >= yy->__limit && !yyrefill(yy)) return 0;\n\
   if ((unsigned char)yy->__buf[yy->__pos] == c)\n\
@@ -537,7 +540,7 @@ YY_LOCAL(int) yymatchChar(yycontext *yy, int c)\n\
   return 0;\n\
 }\n\
 \n\
-YY_LOCAL(int) yymatchString(yycontext *yy, const char *s)\n\
+YY_LOCAL(int) YY_MAYBE_UNUSED yymatchString(yycontext *yy, const char *s)\n\
 {\n\
   int yysav= yy->__pos;\n\
   while (*s)\n\
@@ -554,7 +557,7 @@ YY_LOCAL(int) yymatchString(yycontext *yy, const char *s)\n\
   return 1;\n\
 }\n\
 \n\
-YY_LOCAL(int) yymatchClass(yycontext *yy, unsigned char *bits)\n\
+YY_LOCAL(int) YY_MAYBE_UNUSED yymatchClass(yycontext *yy, unsigned char *bits)\n\
 {\n\
   int c;\n\
   if (yy->__pos >= yy->__limit && !yyrefill(yy)) return 0;\n\
@@ -569,7 +572,7 @@ YY_LOCAL(int) yymatchClass(yycontext *yy, unsigned char *bits)\n\
   return 0;\n\
 }\n\
 \n\
-YY_LOCAL(void) yyDo(yycontext *yy, yyaction action, int begin, int end)\n\
+YY_LOCAL(void) YY_MAYBE_UNUSED yyDo(yycontext *yy, yyaction action, int begin, int end)\n\
 {\n\
   while (yy->__thunkpos >= yy->__thunkslen)\n\
     {\n\
@@ -582,7 +585,7 @@ YY_LOCAL(void) yyDo(yycontext *yy, yyaction action, int begin, int end)\n\
   ++yy->__thunkpos;\n\
 }\n\
 \n\
-YY_LOCAL(int) yyText(yycontext *yy, int begin, int end)\n\
+YY_LOCAL(int) YY_MAYBE_UNUSED yyText(yycontext *yy, int begin, int end)\n\
 {\n\
   int yyleng= end - begin;\n\
   if (yyleng <= 0)\n\
@@ -624,7 +627,7 @@ YY_LOCAL(void) yyCommit(yycontext *yy)\n\
   yy->__pos= yy->__thunkpos= 0;\n\
 }\n\
 \n\
-YY_LOCAL(int) yyAccept(yycontext *yy, int tp0)\n\
+YY_LOCAL(int) YY_MAYBE_UNUSED yyAccept(yycontext *yy, int tp0)\n\
 {\n\
   if (tp0)\n\
     {\n\
@@ -639,7 +642,7 @@ YY_LOCAL(int) yyAccept(yycontext *yy, int tp0)\n\
   return 1;\n\
 }\n\
 \n\
-YY_LOCAL(void) yyPush(yycontext *yy, char *text, int count)\n\
+YY_LOCAL(void) YY_MAYBE_UNUSED yyPush(yycontext *yy, char *text, int count)\n\
 {\n\
   yy->__val += count;\n\
   while (yy->__valslen <= yy->__val - yy->__vals)\n\
@@ -650,12 +653,12 @@ YY_LOCAL(void) yyPush(yycontext *yy, char *text, int count)\n\
       yy->__val= yy->__vals + offset;\n\
     }\n\
 }\n\
-YY_LOCAL(void) yyPop(yycontext *yy, char *text, int count)   { yy->__val -= count; }\n\
-YY_LOCAL(void) yySet(yycontext *yy, char *text, int count)   { yy->__val[count]= yy->__; }\n\
+YY_LOCAL(void) YY_MAYBE_UNUSED yyPop(yycontext *yy, char *text, int count)   { yy->__val -= count; }\n\
+YY_LOCAL(void) YY_MAYBE_UNUSED yySet(yycontext *yy, char *text, int count)   { yy->__val[count]= yy->__; }\n\
 \n\
 #endif /* YY_PART */\n\
 \n\
-#define	YYACCEPT	yyAccept(yy, yythunkpos0)\n\
+#define YYACCEPT yyAccept(yy, yythunkpos0)\n\
 \n\
 ";
 

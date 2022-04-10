@@ -109,7 +109,7 @@ statement = 'print'- expr-list
 |           'save'- s:string				{ save(s.string); }
 |           'load'- s:string				{ load(s.string); }
 |           'type'- s:string				{ type(s.string); }
-|           'dir'-					{ system("ls *.bas"); }
+|           'dir'-					{ if (system("ls *.bas")) fprintf(stderr, "dir failed\n") }
 |           'help'-					{ fprintf(stderr, "%s", help); }
 
 expr-list = ( e:string					{ printf("%s", e.string); }
@@ -327,17 +327,20 @@ void type(char *name)
   else
     {
       int  c, d;
+      c = d = 0;
       while ((c= getc(f)) >= 0)
-	putchar(d= c);
+        putchar(d= c);
       fclose(f);
-      if ('\n' != d && '\r' != d) putchar('\n');
+      if ('\n' != d && '\r' != d)
+        putchar('\n');
     }
 }
 
 int input(void)
 {
   char line[32];
-  fgets(line, sizeof(line), stdin);
+  if (!fgets(line, sizeof(line), stdin))
+    return 0;
   return atoi(line);
 }
 
