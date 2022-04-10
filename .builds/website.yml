@@ -2,6 +2,8 @@ image: alpine/edge
 oauth: pages.sr.ht/PAGES:RW
 packages:
 - hut
+- mandoc
+- util-linux
 environment:
   site: ach.srht.site/minipeg
 tasks:
