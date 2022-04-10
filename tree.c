@@ -170,8 +170,6 @@ Node *makeAlternate(Node *e)
   if (Alternate != e->type)
     {
       Node *node= newNode(Alternate);
-      assert(e);
-      assert(!e->any.next);
       node->alternate.first=
 	node->alternate.last= e;
       return node;
@@ -181,10 +179,7 @@ Node *makeAlternate(Node *e)
 
 Node *Alternate_append(Node *a, Node *e)
 {
-  assert(a);
   a= makeAlternate(a);
-  assert(a->alternate.last);
-  assert(e);
   a->alternate.last->any.next= e;
   a->alternate.last= e;
   return a;
@@ -195,8 +190,6 @@ Node *makeSequence(Node *e)
   if (Sequence != e->type)
     {
       Node *node= newNode(Sequence);
-      assert(e);
-      assert(!e->any.next);
       node->sequence.first=
 	node->sequence.last= e;
       return node;
@@ -206,10 +199,7 @@ Node *makeSequence(Node *e)
 
 Node *Sequence_append(Node *a, Node *e)
 {
-  assert(a);
   a= makeSequence(a);
-  assert(a->sequence.last);
-  assert(e);
   a->sequence.last->any.next= e;
   a->sequence.last= e;
   return a;
@@ -343,7 +333,6 @@ void Node_print(Node *node)	{ Node_fprint(stderr, node); }
 
 static void Rule_fprint(FILE *stream, Node *node)
 {
-  assert(node);
   assert(Rule == node->type);
   fprintf(stream, "%s.%d =", node->rule.name, node->rule.id);
   if (node->rule.expression)
