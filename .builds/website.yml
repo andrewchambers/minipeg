@@ -10,4 +10,4 @@ tasks:
     make www/index.html
     rm www/*.sh
     tar -C www -cvz . > site.tar.gz
-    hut pages publish -d ach.srht.site/minipeg site.tar.gz
+    hut pages publish -d ach.srht.site -s minipeg site.tar.gz
