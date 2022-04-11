@@ -27,7 +27,7 @@
 #include <string.h>
 #include <unistd.h>
 #line 0 "version.h"
-#define MINIPEG_VERSION "f0adf43"
+#define MINIPEG_VERSION "4e9111b"
 #line 0 "tree.h"
 
 enum { Unknown= 0, Rule, Variable, Name, Dot, Character, String, Class, Action, Inline, Predicate, Error, Alternate, Sequence, PeekFor, PeekNot, Query, Star, Plus };
@@ -2793,8 +2793,11 @@ int main(int argc, char **argv)
 
   Rule_compile_c_header();
 
-  for (; headers;  headers= headers->next)
-    fprintf(output, "#line %i \"%s\"\n%s\n", headers->line, fileName, headers->text);
+  for (; headers;  headers= headers->next) {
+    if (!nolinesFlag)
+      fprintf(output, "#line %i \"%s\"\n", headers->line, fileName);
+    fprintf(output, "%s\n", headers->text);
+  }
 
   if (rules)
     Rule_compile_c(rules, nolinesFlag);

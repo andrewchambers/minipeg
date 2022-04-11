@@ -282,8 +282,11 @@ int main(int argc, char **argv)
 
   Rule_compile_c_header();
 
-  for (; headers;  headers= headers->next)
-    fprintf(output, "#line %i \"%s\"\n%s\n", headers->line, fileName, headers->text);
+  for (; headers;  headers= headers->next) {
+    if (!nolinesFlag)
+      fprintf(output, "#line %i \"%s\"\n", headers->line, fileName);
+    fprintf(output, "%s\n", headers->text);
+  }
 
   if (rules)
     Rule_compile_c(rules, nolinesFlag);
