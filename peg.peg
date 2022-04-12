@@ -38,7 +38,6 @@
 # define YY_INPUT(buf, result, max)			\
   {							\
     int c= getc(input);					\
-    /* if ('\n' == c || '\r' == c) ++lineNumber; */	\
     result= (EOF == c) ? 0 : (*(buf)= c, 1);		\
   }
 
