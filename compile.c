@@ -334,7 +334,6 @@ static void undefineVariables(Node *node)
 {
   fprintf(output, "#undef yythunkpos\n");
   fprintf(output, "#undef yypos\n");
-  fprintf(output, "#undef yy\n");
   while (node)
     {
       fprintf(output, "#undef %s\n", node->variable.name);
