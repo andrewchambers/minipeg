@@ -446,7 +446,6 @@ static char *preamble= "\
 \n\
 #ifndef YY_PART\n\
 \n\
-typedef struct _yycontext yycontext;\n\
 typedef void (*yyaction)(yycontext *yy, char *yytext, int yyleng);\n\
 typedef struct _yythunk { int begin, end;  yyaction  action;  struct _yythunk *next; } yythunk;\n\
 \n\
@@ -719,6 +718,7 @@ void Rule_compile_c_header(void)
   fprintf(output, "\n");
   fprintf(output, "%s", header);
   fprintf(output, "#define YYRULECOUNT %d\n", ruleCount);
+  fprintf(output, "typedef struct _yycontext yycontext;\n");
 }
 
 int consumesInput(Node *node)
