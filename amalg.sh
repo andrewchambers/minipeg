@@ -21,6 +21,6 @@ echo "*/"
 
 for f in "$@"
 do
-  echo "#line 0 \"$f\""
+  echo "#line 1 \"$f\""
   grep -v '^#include' "$f"
 done
