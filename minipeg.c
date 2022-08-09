@@ -26,7 +26,7 @@
 #include <string.h>
 #include <unistd.h>
 #line 1 "version.h"
-#define MINIPEG_VERSION "77a5ec7b"
+#define MINIPEG_VERSION "73492bd"
 #line 1 "tree.h"
 
 enum { Unknown= 0, Rule, Variable, Name, Dot, Character, String, Class, Action, Inline, Predicate, Error, Alternate, Sequence, PeekFor, PeekNot, Query, Star, Plus };
