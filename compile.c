@@ -389,7 +389,11 @@ static char *header=
 
 static char *preamble= "\
 #ifndef YY_MAYBE_UNUSED\n\
+#ifdef __GNUC__\n\
 #define YY_MAYBE_UNUSED __attribute__((unused))\n\
+#else\n\
+#define YY_MAYBE_UNUSED\n\
+#endif\n\
 #endif\n\
 #ifndef YY_MALLOC\n\
 #define YY_MALLOC(C, N)		malloc(N)\n\

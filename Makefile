@@ -10,12 +10,15 @@ OBJ = compile.o tree.o peg.o
 
 all: minipeg
 
-install: $(BINDIR) $(BINDIR)/leg $(MANDIR) $(MANDIR)/peg.1
-	mkdir -p $(MANDIR) $(BINDIR)
-	cp minipeg $(BINDIR)
-	cp doc/minipeg.1 $(MANDIR)
+install: $(BINDIR)/minipeg $(MANDIR)/minipeg.1
 
-$(MANDIR) :
+$(BINDIR)/minipeg: minipeg
+	cp $< $@
+
+$(MANDIR)/minipeg.1: minipeg.1
+	cp $< $@
+
+$(MANDIR):
 	mkdir -p $(MANDIR)
 
 bootstrap-minipeg: minipeg.c
